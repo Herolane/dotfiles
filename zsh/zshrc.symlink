@@ -120,7 +120,9 @@ alias ohmyzsh="code ~/.oh-my-zsh"
 alias k="kubectl"
 
 # export PATH=$PATH:~/bin
+# export GOPATH=~/go 
 # export PATH=$GOPATH/bin:$PATH
+# export GOROOT=/usr/local/opt/go/libexec
 
 # az cli
 autoload bashcompinit && bashcompinit
