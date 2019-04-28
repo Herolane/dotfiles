@@ -16,7 +16,6 @@ then
 
 fi
 
-# update brew
 echo "Updating package lists..."
 brew update
 
@@ -74,15 +73,6 @@ echo ''
 git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
 git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
-git clone https://github.com/trapd00r/zsh-syntax-highlighting-filetypes.git ~/.zsh/zsh-syntax-highlighting-filetypes
-git clone https://github.com/zsh-users/zsh-history-substring-search.git ~/.zsh/zsh-history-substring-search
-
-
-# warhol install
-echo ''
-echo 'Now installing warhol'
-echo ''
-git clone https://github.com/unixorn/warhol.plugin.zsh.git ~/.oh-my-zsh/custom/plugins/warhol
 
 # powerlevel9k install
 echo ''
@@ -141,13 +131,13 @@ then
 
     if [[ $? -eq 0 ]]
     then
-        echo "Successfully configured your environment with jldeen's macOS dotfiles..."
+        echo "Successfully configured your environment with Herolane's macOS dotfiles..."
     else
         echo "Herolane's macOS dotfiles were not applied successfully..." >&2
 fi
 else 
 	echo ''
-    echo "You chose not to apply aheld's macOS dotfiles. You will need to configure your environment manually..."
+    echo "You chose not to apply Herolane's macOS dotfiles. You will need to configure your environment manually..."
 	echo ''
 	echo "Setting defaults for .zshrc and .bashrc..."
 	echo ''

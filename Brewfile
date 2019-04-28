@@ -8,6 +8,7 @@ tap 'homebrew/bundle'
 brew 'ack'
 brew 'azure-cli'
 brew 'coreutils'
+brew 'go'
 brew 'grc'
 brew 'gnupg'
 brew 'gdb'
@@ -27,10 +28,6 @@ brew 'wget'
 brew 'yarn'
 brew 'youtube-dl'
 # brew 'curl', args: [with-openssl]
-
-tap 'moncho/dry'
-brew 'dry'
-
 
 # Cask Applications into /Applications
 

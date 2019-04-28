@@ -30,8 +30,8 @@ defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 defaults write com.apple.CrashReporter DialogType none
 
 # Disable Bonjour multicast advertisements:
-echo "Disable Bonjour multicast advertisements:"
-sudo defaults write /Library/Preferences/com.apple.mDNSResponder.plist NoMulticastAdvertisements -bool YES
+# echo "Disable Bonjour multicast advertisements:"
+# sudo defaults write /Library/Preferences/com.apple.mDNSResponder.plist NoMulticastAdvertisements -bool YES
 
 # Enable the firewall with logging and stealth mode:
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on

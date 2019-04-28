@@ -2,10 +2,11 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 ####
-#  Oh-my-zsh !  
+#  Oh-my-zsh !
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export ZSH=~/.oh-my-zsh
-export DEFAULT_USER='dev'
-TERM=xterm-256color
+export TERM=xterm-256color
 
 ####
 # Theme
@@ -19,11 +20,8 @@ ZSH_TMUX_AUTOSTART='true'
 
 ####
 # Formating
-ENABLE_CORRECTION="false"
-HIST_STAMPS="mm/dd/yyyy"
 
-
-autoload -U compinit && compinit
+# autoload -U compinit && compinit
 autoload bashcompinit && bashcompinit
 
 
@@ -33,46 +31,44 @@ autoload bashcompinit && bashcompinit
 plugins=(
     git
     git-extras
-    gem
-    bundler
+    # gem
+    tmux
+    tmuxinator
+    taskwarrior
+    # bundler
     osx
-    ruby
-    rvm
+    # ruby
+    #rvm
     sudo 
-    colorize
-    compleat
+    #colorize
+    #compleat
     history
-    history-substring-search
-    last-working-dir
+   # history-substring-search
+#    last-working-dir
     zsh-completions 
     zsh-syntax-highlighting
-    zsh-syntax-highlighting-filetypes
-    zsh-history-substring-search
+ #   zsh-syntax-highlighting-filetypes
+  #  zsh-history-substring-search
     zsh-autosuggestions
-    warhol
+   # warhol
 
     )
 
-
-source ~/.oh-my-zsh/custom/plugins/zsh-completions/zsh-completions.plugin.zsh
-
-source ~/.zsh/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting-filetypes.zsh
-source ~/.zsh/zsh-history-substring-search
-
-
 source $ZSH/oh-my-zsh.sh
+source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-#source $(dirname $(gem which colorls))/tab_complete.sh
 
-#source ~/bin/ak_custom.zsh
+# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting-filetypes.zsh
+# source ~/.zsh/zsh-history-substring-search.zsh
+
+alias zshconfig="code ~/.zshrc"
+alias ohmyzsh="code ~/.oh-my-zsh"
+alias k="kubectl"
 
 ###
 # Exports
-export CLICOLOR=1
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-export PROMPT_COMMAND="history -a; history -n"
-source /Users/dev/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /Users/dev/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+####
+# Azure Cli
+autoload bashcompinit && bashcompinit
