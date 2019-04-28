@@ -30,6 +30,10 @@ echo ''
 brew install zsh zsh-completions
 fi
 
+# Installing colorls
+gem install colorls
+# git clone https://github.com/gretzky/auto-color-ls ~/.
+
 # Installing git completion
 echo ''
 echo "Now installing git and bash-completion..."
@@ -73,6 +77,8 @@ echo ''
 git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
 git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+git clone https://github.com/floor114/zsh-apple-touchbar ~/.zsh/zsh-apple-touchbar
+git cloen https://github.com/trapd00r/zsh-syntax-highlighting-filetypes.git ~/.zsh/zsh-syntax-highlighting-filetypes
 
 # powerlevel9k install
 echo ''
