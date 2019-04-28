@@ -11,12 +11,26 @@ echo "Now installing zsh..."
 echo ''
 brew install zsh zsh-completions
 
+
+# Setup git & bas completitions
+echo ''
+read -p "Do you want to install git via homebrew y/n (Git is not codesigned afterwards)" -n 1 -r
+echo ''
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    echo ''
+	echo ''
+	echo "Now installing git..."
+	echo ''
+	brew install git
+fi
+
 # Installing git completion
 echo ''
 echo "Now installing git and bash-completion..."
-brew install git && brew install bash-completion
-
+brew install bash-completion
 echo ''
+
 echo "Now configuring git-completion..."
 GIT_VERSION=`git --version | awk '{print $3}'`
 URL="https://raw.github.com/git/git/v$GIT_VERSION/contrib/completion/git-completion.bash"
@@ -25,6 +39,7 @@ echo "Downloading git-completion for git version: $GIT_VERSION..."
 if ! curl "$URL" --silent --output "$HOME/.git-completion.bash"; then
 	echo "ERROR: Couldn't download completion script. Make sure you have a working internet connection." && exit 1
 fi
+
 
 # oh-my-zsh install
 echo ''
@@ -72,24 +87,18 @@ echo ''
 git clone https://github.com/sheerun/vim-wombat-scheme.git ~/.vim/colors/wombat 
 mv ~/.vim/colors/wombat/colors/* ~/.vim/colors/
 
-# Midnight commander install
-echo ''
-echo "Now installing Midnight commander..."
-echo ''
-brew install mc
-
 # Speedtest-cli and jq install
 brew install jq speedtest-cli
 
 # Pull down personal dotfiles
 echo ''
-read -p "Do you want to use jldeen's dotfiles? y/n" -n 1 -r
+read -p "Do you want to import Herolane dotfiles? y/n" -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     echo ''
-	echo "Now pulling down jldeen dotfiles..."
-	git clone https://github.com/jldeen/dotfiles.git ~/.dotfiles
+	echo "Now pulling down Herolane dotfiles..."
+	git clone https://github.com/Herolane/dotfiles.git ~/.dotfiles
 	echo ''
 	cd $HOME/.dotfiles && echo "switched to .dotfiles dir..."
 	echo ''
@@ -98,13 +107,13 @@ then
 	echo "Now configuring symlinks..." && $HOME/.dotfiles/script/bootstrap
     if [[ $? -eq 0 ]]
     then
-        echo "Successfully configured your environment with jldeen's macOS dotfiles..."
+        echo "Successfully configured your environment with Herolane's macOS dotfiles..."
     else
-        echo "jldeen's macOS dotfiles were not applied successfully..." >&2
+        echo "Herolane's macOS dotfiles were not applied successfully..." >&2
 fi
 else 
 	echo ''
-    echo "You chose not to apply jldeen's macOS dotfiles. You will need to configure your environment manually..."
+    echo "You chose not to apply Herolane's macOS dotfiles. You will need to configure your environment manually..."
 	echo ''
 	echo "Setting defaults for .zshrc and .bashrc..."
 	echo ''
