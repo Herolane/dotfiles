@@ -16,7 +16,7 @@ POWERLEVEL9K_MODE='awesome-fontconfig'
 
 ####
 # Temux
-ZSH_TMUX_AUTOSTART='true'
+# ZSH_TMUX_AUTOSTART='true'
 
 ####
 # Formating
@@ -35,7 +35,7 @@ plugins=(
     tmux
     tmuxinator
     taskwarrior
-    # bundler
+    bundler
     osx
     # ruby
     #rvm
@@ -43,13 +43,13 @@ plugins=(
     #colorize
     #compleat
     history
-   # history-substring-search
+    history-substring-search
 #    last-working-dir
-    zsh-completions 
-    zsh-syntax-highlighting
+     zsh-completions 
+     zsh-syntax-highlighting
  #   zsh-syntax-highlighting-filetypes
-  #  zsh-history-substring-search
-    zsh-autosuggestions
+     zsh-history-substring-search
+     zsh-autosuggestions
    # warhol
 
     )
@@ -57,10 +57,11 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
+source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ~/.zsh/zsh-apple-touchbar/zsh-apple-touchbar.zsh
 
 # source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting-filetypes.zsh
-# source ~/.zsh/zsh-history-substring-search.zsh
+
 
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
