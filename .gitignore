@@ -15,4 +15,4 @@ bin/bandwidth.log
 
 git/gitconfig.local.symlink
 
-oh-my-zsh/*
+# oh-my-zsh/*
