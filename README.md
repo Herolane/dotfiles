@@ -19,6 +19,8 @@ Run this if you wish to run from clone:
 
 ```sh
 git clone https://github.com/Herolane/dotfiles.git ~/.dotfiles
+git fetch --all
+git checkout mac
 cd ~/.dotfiles
 script/bootstrap
 ```
