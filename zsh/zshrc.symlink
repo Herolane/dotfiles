@@ -38,7 +38,7 @@ POWERLEVEL9K_KUBECONTEXT_FOREGROUND='000'
 ## 
 
 # Default username to hide "user@hostname" info
-DEFAULT_USER="jessicadeen"
+DEFAULT_USER="aheld"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -120,9 +120,7 @@ alias ohmyzsh="code ~/.oh-my-zsh"
 alias k="kubectl"
 
 # export PATH=$PATH:~/bin
-# export GOPATH=~/go 
 # export PATH=$GOPATH/bin:$PATH
-# export GOROOT=/usr/local/opt/go/libexec
 
 # az cli
 autoload bashcompinit && bashcompinit
