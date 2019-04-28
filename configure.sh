@@ -1,57 +1,50 @@
 #!/bin/bash
 
-# Install brew
-if test ! $(which brew)
-then
-  echo "  Installing Homebrew for you."
-
-  # Install the correct homebrew for each OS type
-  if test "$(uname)" = "Darwin"
-  then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
-  then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-  fi
-
-fi
-
+# Update Brew
 echo "Updating package lists..."
 brew update
 
+# zsh install
+echo ''
+echo "Now installing zsh..."
+echo ''
+brew install zsh zsh-completions
+
 # Install curl with enforced openssl
-brew install curl --with-openssl
+# brew install curl --with-openssl
 brew link --force curl
 
 ## Install PGP / GPG
 curl -o ~/.gnupg/gpg.conf https://raw.githubusercontent.com/drduh/config/master/gpg.conf
 
-
-# zsh install
-if test $(which zsh) 
+# Setup git & bas completitions
+echo ''
+read -p "Do you want to install git via homebrew y/n (Git is not codesigned afterwards)" -n 1 -r
+echo ''
+if [[ $REPLY =~ ^[Yy]$ ]]
 then
-echo ''
-echo "zsh already installed..."
-else
-echo "zsh not found, now installing zsh..."
-echo ''
-brew install zsh zsh-completions
+    echo ''
+	echo ''
+	echo "Now installing git..."
+	echo ''
+	brew install git
 fi
 
 # Installing git completion
 echo ''
 echo "Now installing git and bash-completion..."
-brew install git && brew install bash-completion
-
+brew install bash-completion
 echo ''
+
 echo "Now configuring git-completion..."
 GIT_VERSION=`git --version | awk '{print $3}'`
-URL="https://raw.github.com/git/git/v$GIT_VERSION/contrib/completion/git-completion.bash"
+URL="https://raw.github.com/git/git/master/contrib/completion/git-completion.bash"
 echo ''
 echo "Downloading git-completion for git version: $GIT_VERSION..."
 if ! curl "$URL" --silent --output "$HOME/.git-completion.bash"; then
-	echo "ERROR: Couldn't download completion script. Make sure you have a working internet connection." && exit 1
+	echo "ERROR: Couldn't download completion script. Make sure you have a working internet connection." ## && exit 1
 fi
+
 
 # oh-my-zsh install
 if [ -d ~/.oh-my-zsh/ ] ; then
@@ -122,30 +115,28 @@ brew install mc
 
 # Pull down personal dotfiles
 echo ''
-read -p "Do you want to use jldeen's dotfiles? y/n" -n 1 -r
+read -p "Do you want to import Herolane dotfiles? y/n" -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     echo ''
-	echo "Now pulling down jldeen dotfiles..."
-	git clone https://github.com/jldeen/dotfiles.git ~/.dotfiles
+	echo "Now pulling down Herolane dotfiles..."
+	git clone https://github.com/Herolane/dotfiles.git ~/.dotfiles
 	echo ''
 	cd $HOME/.dotfiles && echo "switched to .dotfiles dir..."
 	echo ''
-	echo "Checking out macOS branch..." && git checkout mac
+	echo "Checking out macOS branch..." && git fetch && git checkout mac
 	echo ''
 	echo "Now configuring symlinks..." && $HOME/.dotfiles/script/bootstrap
-    echo ''
-
     if [[ $? -eq 0 ]]
     then
-        echo "Successfully configured your environment with jldeen's macOS dotfiles..."
+        echo "Successfully configured your environment with Herolane's macOS dotfiles..."
     else
-        echo "Herolanes's macOS dotfiles were not applied successfully..." >&2
+        echo "Herolane's macOS dotfiles were not applied successfully..." >&2
 fi
 else 
 	echo ''
-    echo "You chose not to apply jldeen's macOS dotfiles. You will need to configure your environment manually..."
+    echo "You chose not to apply Herolane's macOS dotfiles. You will need to configure your environment manually..."
 	echo ''
 	echo "Setting defaults for .zshrc and .bashrc..."
 	echo ''
@@ -156,3 +147,41 @@ else
 	echo "source $HOME/.git-completion.bash" >> ${ZDOTDIR:-$HOME}/.bashrc && echo "added git-completion to .bashrc..."
 	
 fi
+
+# Setup and configure az cli
+echo ''
+read -p "Do you want to install Azure CLI? y/n (This will take some time...)" -n 1 -r
+echo ''
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+	echo "Now installing az cli..."
+    brew install azure-cli
+    if [[ $? -eq 0 ]]
+    then
+        echo "Successfully installed Azure CLI 2.0."
+    else
+        echo "Azure CLI not installed successfully." >&2
+fi
+else 
+    echo "You chose not to install Azure CLI. Exiting now."
+fi
+
+# Set default shell to zsh
+echo ''
+read -p "Do you want to change your default shell? y/n" -n 1 -r
+echo ''
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+	echo "Now setting default shell..."
+    chsh -s $(which zsh); exit 0
+    if [[ $? -eq 0 ]]
+    then
+        echo "Successfully set your default shell to zsh..."
+    else
+        echo "Default shell not set successfully..." >&2
+fi
+else 
+    echo "You chose not to set your default shell to zsh. Exiting now..."
+fi
+echo ''
+echo '	Badass macOS terminal installed!'
