@@ -148,7 +148,7 @@ then
 fi
 else 
 	echo ''
-    echo "You chose not to apply jldeen's macOS dotfiles. You will need to configure your environment manually..."
+    echo "You chose not to apply aheld's macOS dotfiles. You will need to configure your environment manually..."
 	echo ''
 	echo "Setting defaults for .zshrc and .bashrc..."
 	echo ''

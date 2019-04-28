@@ -125,4 +125,4 @@ GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWUPSTREAM="auto"
 
 # az cli
-autoload bashcompinit && bashcompinit
+autoload bashcompinit && bashcompinitsource /Users/dev/.git-completion.bash
