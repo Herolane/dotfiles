@@ -5,10 +5,15 @@ echo "Updating package lists..."
 brew update
 
 # zsh install
+if test $(which zsh) 
+then
 echo ''
-echo "Now installing zsh..."
+echo "zsh already installed..."
+else
+echo "zsh not found, now installing zsh..."
 echo ''
 brew install zsh zsh-completions
+fi
 
 # Install curl with enforced openssl
 # brew install curl --with-openssl
