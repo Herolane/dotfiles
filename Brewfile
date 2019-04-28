@@ -5,7 +5,6 @@ tap 'homebrew/bundle'
 brew 'ack'
 brew 'azure-cli'
 brew 'coreutils'
-brew 'go'
 brew 'grc'
 brew 'gnupg'
 brew 'gdb'
@@ -14,7 +13,6 @@ brew 'jq'
 brew 'libgit2'
 brew 'openssl'
 brew 'node'
-brew 'postgresql'
 brew 'python'
 brew 'ruby-build'
 brew 'rbenv'
@@ -25,6 +23,13 @@ brew 'unrar'
 brew 'wget'
 brew 'yarn'
 brew 'youtube-dl'
+brew 'curl', args: [with-openssl]
+
+tap 'moncho/dry'
+brew 'dry'
+
+
+# Cask Applications into /Applications
 
 # cask '1password'
 # cask 'firefox'

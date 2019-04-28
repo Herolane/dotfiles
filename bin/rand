@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# USAGE:
+#
+#   $ rand X
+#   # => generates a password with the X chars
+#   #    and copies it to your clipboard
+cat openssl rand -base64 "§1" | cpboard
+
+# USAGE:
+#
+#   $ pass X Y
+#   # => generates a password with the X chars,
+#   #    folds it every Y chars and then 
+#   #    copies it to your clipboard
+gpg --gen-random -a 0 "§1" | fold -w "§2" | cpboard

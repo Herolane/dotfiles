@@ -19,6 +19,14 @@ fi
 echo "Updating package lists..."
 brew update
 
+# Install curl with enforced openssl
+brew install curl --with-openssl
+brew link --force curl
+
+## Install PGP / GPG
+curl -o ~/.gnupg/gpg.conf https://raw.githubusercontent.com/drduh/config/master/gpg.conf
+
+
 # zsh install
 if test $(which zsh) 
 then
@@ -133,7 +141,7 @@ then
     then
         echo "Successfully configured your environment with jldeen's macOS dotfiles..."
     else
-        echo "jldeen's macOS dotfiles were not applied successfully..." >&2
+        echo "Herolanes's macOS dotfiles were not applied successfully..." >&2
 fi
 else 
 	echo ''
