@@ -33,11 +33,11 @@ echo ''
 
 echo "Now configuring git-completion..."
 GIT_VERSION=`git --version | awk '{print $3}'`
-URL="https://raw.github.com/git/git/v$GIT_VERSION/contrib/completion/git-completion.bash"
+URL="https://raw.github.com/git/git/master/contrib/completion/git-completion.bash"
 echo ''
 echo "Downloading git-completion for git version: $GIT_VERSION..."
 if ! curl "$URL" --silent --output "$HOME/.git-completion.bash"; then
-	echo "ERROR: Couldn't download completion script. Make sure you have a working internet connection." && exit 1
+	echo "ERROR: Couldn't download completion script. Make sure you have a working internet connection." ## && exit 1
 fi
 
 
@@ -88,7 +88,17 @@ git clone https://github.com/sheerun/vim-wombat-scheme.git ~/.vim/colors/wombat
 mv ~/.vim/colors/wombat/colors/* ~/.vim/colors/
 
 # Speedtest-cli and jq install
-brew install jq speedtest-cli
+echo ''
+read -p "Do you want to setup Speedtest-cli and jq install y/n (Git is not codesigned afterwards)" -n 1 -r
+echo ''
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    echo ''
+	echo ''
+	echo "Now installing git..."
+	echo ''
+	brew install jq speedtest-cli
+fi
 
 # Pull down personal dotfiles
 echo ''
@@ -102,7 +112,7 @@ then
 	echo ''
 	cd $HOME/.dotfiles && echo "switched to .dotfiles dir..."
 	echo ''
-	echo "Checking out macOS branch..." && git checkout mac
+	echo "Checking out macOS branch..." && git fetch && git checkout mac
 	echo ''
 	echo "Now configuring symlinks..." && $HOME/.dotfiles/script/bootstrap
     if [[ $? -eq 0 ]]
