@@ -16,7 +16,7 @@ then
 
 fi
 
-# Update Brew
+# update brew
 echo "Updating package lists..."
 brew update
 
@@ -34,7 +34,6 @@ fi
 # Installing git completion
 echo ''
 echo "Now installing git and bash-completion..."
-echo ''
 brew install git && brew install bash-completion
 
 echo ''
@@ -76,7 +75,7 @@ git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugi
 git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 git clone https://github.com/trapd00r/zsh-syntax-highlighting-filetypes.git ~/.zsh/zsh-syntax-highlighting-filetypes
-git clone https://github.com/zsh-users/zsh-history-substring-search ~/.zsh/zsh-history-substring-search
+git clone https://github.com/zsh-users/zsh-history-substring-search.git ~/.zsh/zsh-history-substring-search
 
 
 # warhol install

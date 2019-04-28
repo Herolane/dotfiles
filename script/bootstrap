@@ -125,6 +125,8 @@ link_file () {
   fi
 }
 
+
+
 install_dotfiles () {
   info 'installing dotfiles'
 
