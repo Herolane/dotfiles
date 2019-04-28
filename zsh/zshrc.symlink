@@ -31,36 +31,32 @@ autoload bashcompinit && bashcompinit
 plugins=(
     git
     git-extras
-    # gem
+    gem
     tmux
     tmuxinator
     taskwarrior
     bundler
     osx
-    # ruby
-    #rvm
+    colorls
+    ruby
+    rvm
     sudo 
     #colorize
-    #compleat
+    compleat
     history
     history-substring-search
-#    last-working-dir
-     zsh-completions 
-     zsh-syntax-highlighting
- #   zsh-syntax-highlighting-filetypes
-     zsh-history-substring-search
-     zsh-autosuggestions
-   # warhol
-
+    zsh-syntax-highlighting
+    zsh-syntax-highlighting-filetypes
+    zsh-history-substring-search
+    zsh-autosuggestions
     )
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
-source ~/.zsh/zsh-apple-touchbar/zsh-apple-touchbar.zsh
-
-# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting-filetypes.zsh
+source $HOME/.zsh/zsh-apple-touchbar/zsh-apple-touchbar.zsh
+source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting-filetypes.zsh
 
 
 alias zshconfig="code ~/.zshrc"
