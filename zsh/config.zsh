@@ -1,5 +1,5 @@
-export LSCOLORS="exfxcxdxbxegedabagacad"
-export CLICOLOR=true
+#export LSCOLORS="exfxcxdxbxegedabagacad"
+#export CLICOLOR=true
 
 fpath=($ZSH/functions $fpath)
 
@@ -8,6 +8,9 @@ autoload -U $ZSH/functions/*(:t)
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
+ENABLE_CORRECTION="false"
+HIST_STAMPS="mm/dd/yyyy"
+
 
 setopt NO_BG_NICE # don't nice background tasks
 setopt NO_HUP
@@ -37,3 +40,5 @@ bindkey '^[[5D' beginning-of-line
 bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^?' backward-delete-char
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
