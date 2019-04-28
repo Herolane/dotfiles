@@ -1,5 +1,8 @@
 cask_args appdir: '/Applications'
 
+tap 'moncho/dry'
+brew 'dry'
+
 tap 'homebrew/bundle'
 
 brew 'ack'
@@ -23,7 +26,7 @@ brew 'unrar'
 brew 'wget'
 brew 'yarn'
 brew 'youtube-dl'
-brew 'curl', args: [with-openssl]
+# brew 'curl', args: [with-openssl]
 
 tap 'moncho/dry'
 brew 'dry'
