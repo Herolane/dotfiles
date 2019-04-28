@@ -31,7 +31,7 @@ brew install zsh zsh-completions
 fi
 
 # Installing colorls
-gem install colorls
+# gem install colorls
 git clone https://github.com/gretzky/auto-color-ls ~/.oh-my-zsh/custom/plugins/auto-color-ls
 
 # Installing git completion
